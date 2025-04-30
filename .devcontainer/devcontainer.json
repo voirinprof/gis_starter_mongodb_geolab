@@ -1,0 +1,16 @@
+{
+    "name": "MongoDB Python Dev",
+    "dockerComposeFile": "docker-compose.yml",
+    "service": "python",
+    "workspaceFolder": "/workspaces/gis_starter_mongodb_geolab",
+    "customizations": {
+      "vscode": {
+        "extensions": [
+          "ms-python.python",
+          "ms-python.vscode-pylance"
+        ]
+      }
+    },
+    "forwardPorts": [27017, 8081],
+    "postCreateCommand": "pip install --upgrade pip && pip install -r .devcontainer/requirements.txt"
+  }

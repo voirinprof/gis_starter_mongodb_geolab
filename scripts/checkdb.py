@@ -1,0 +1,14 @@
+import os
+from pymongo import MongoClient
+
+host = os.getenv("MONGO_HOST", "localhost")
+port = int(os.getenv("MONGO_PORT", "27017"))
+db_name = os.getenv("MONGO_DB", "test_db")
+collection_name = os.getenv("MONGO_COLLECTION", "test_collection")
+
+client = MongoClient(f"mongodb://{host}:{port}/")
+db = client[db_name]
+collection = db[collection_name]
+
+collection.insert_one({"message": "Hello from MongoDB with environment variables!"})
+print("Inserted document:", collection.find_one())
